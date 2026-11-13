@@ -1,0 +1,17 @@
+name: Source checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - run: python -m compileall -q hardware-bridge scripts
+      - run: python scripts/test_public_audit.py
+      - run: python scripts/check_public_tree.py

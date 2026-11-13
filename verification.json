@@ -1,0 +1,28 @@
+{
+  "release_kind": "experimental-source",
+  "public_apk_built": true,
+  "public_apk_signature_verified": true,
+  "public_apk_installed_on_device": false,
+  "public_startup_script_device_tested": false,
+  "firmware_apk_font_or_keys_distributed": false,
+  "hardware_bridge_auto_start_after_reboot": false,
+  "github_published": false,
+  "private_build_evidence": {
+    "version": "0.1.2",
+    "ic_insertion_removal_verified": true,
+    "ic_reader_model": "NC1-KIC",
+    "ic_firmware": "XR0012",
+    "rgb_zones": 3,
+    "rgb_channels": 9,
+    "brightness_restoration_verified": true,
+    "camera_0_frames": true,
+    "camera_1_session": true
+  },
+  "unfinished": [
+    "MSR physical swipe",
+    "NFC valid RF detection response",
+    "silent reader buzzer control",
+    "face authentication",
+    "automatic helper and UART restoration after reboot"
+  ]
+}

@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="local.son.connectdiagnostics" android:versionCode="3" android:versionName="0.1.2">
+<uses-sdk android:minSdkVersion="28" android:targetSdkVersion="35"/>
+<uses-permission android:name="android.permission.CAMERA"/>
+<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+<uses-permission android:name="android.permission.NFC"/>
+<uses-feature android:name="android.hardware.camera.any" android:required="false"/>
+<uses-feature android:name="android.hardware.microphone" android:required="false"/>
+<uses-feature android:name="android.hardware.nfc" android:required="false"/>
+<queries><package android:name="com.naverfin.locus"/><package android:name="com.naverfin.npayconnect"/><package android:name="local.son.connectconsole"/></queries>
+<application android:label="커넥트 진단" android:theme="@style/AppTheme" android:icon="@drawable/ic_diagnostics" android:allowBackup="false" android:supportsRtl="true">
+<activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+</application></manifest>
