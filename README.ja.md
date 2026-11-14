@@ -2,15 +2,17 @@
 
 [한국어](README.ko.md) · [English](README.md)
 
+![Connect Diagnostics — camera, RGB and IC card tests](docs/overview.svg)
+
 LineageOS をインストールした Naver Pay Connect（Npay_connect）で、カメラ、音声、センサー、Android NFC、RGB、IC カードの状態を確認するアプリです。
 
 | 機能 | 実機で確認した範囲 |
 | --- | --- |
-| カメラ | ID 0 の映像フレームと ID 1 のキャプチャセッション開始を確認しました。顔認証は対象外です。 |
+| カメラ | ID 0 の映像フレームと ID 1 のキャプチャセッション開始を確認しました。 |
 | RGB | root ブリッジで 3 か所の RGB 9 チャンネルを制御し、テスト前の明るさに戻しました。 |
 | IC カード | NC1-KIC ファームウェア XR0012 で挿入と取り外しを確認しました。 |
 | MSR | 実験用の待機処理の終了と UART ロックの解放を確認しました。実際のスワイプは未検証です。 |
-| 決済用 NFC | 実験用の RF 照会で有効な応答を得られませんでした。通常モードへの復帰を確認しました。アプリの Android NFC は別の標準 API を使用します。 |
+| 決済用 NFC | RF検出は追加検証中です。通常モードへの復帰を確認しました。アプリの Android NFC は別の標準 API を使用します。 |
 
 実機試験にはプライベートビルド 0.1.2 を使用しました。公開版はシステムフォントを使います。APK のビルドと署名は確認済みで、公開版の実機インストールは未検証です。
 
@@ -24,7 +26,7 @@ PowerShell、JDK 21、Android SDK Platform 36、Build Tools 36.0.0、Platform To
 adb -s <接続ID> install -r ./connect-diagnostics/build/ConnectDiagnostics-0.1.2-public.apk
 ```
 
-ビルド時にローカル署名鍵を生成します。上書きインストールには元の APK と同じ鍵が必要です。鍵の変更のためにアンインストールするとアプリデータも消去されます。リポジトリはソースを公開し、APK、ファームウェア、フォント、署名鍵は配布対象外です。
+ビルド時にローカル署名鍵を生成します。上書きインストールには元の APK と同じ鍵が必要です。鍵の変更のためにアンインストールするとアプリデータも消去されます。公開ソースからAPKをビルドできます。生成した署名鍵は次回の更新用に保管してください。
 
 ## RGB と IC のサービスを開始
 
@@ -44,4 +46,4 @@ python ./hardware-bridge/card_probe.py --serial <現在の接続ID> --repair-nod
 
 実験用 MSR と RF ツールは [hardware-bridge の説明](hardware-bridge/README.md)を参照してください。
 
-両方のアプリを使う場合は `naver-connect-diagnostics` の補助サービスを起動してください。RGBとICを提供します。コンソール専用サービスはRGBのみです。同じRGBソケットを使うため、切り替え前に既存サービスを `-Stop` で停止します。診断用起動スクリプトはICソケットがない場合に準備完了としません。公開用起動スクリプトの変更は構文確認のみで、実機実行は未検証です。
+両方のアプリを使う場合は `naver-connect-diagnostics` の補助サービスを起動してください。RGBとICを提供します。コンソール専用サービスはRGBのみです。同じRGBソケットを使うため、切り替え前に既存サービスを `-Stop` で停止します。起動スクリプトはRGB・ICソケットを確認してから準備完了を表示します。公開用スクリプトは構文確認済みで、実機実行の確認待ちです。
