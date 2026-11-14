@@ -2,7 +2,7 @@
 
 [한국어](README.ko.md) · [English](README.md)
 
-![Connect Diagnostics — camera, RGB and IC card tests](docs/overview.svg)
+![Connect Diagnostics 0.1.2 running on Npay Connect](docs/screenshot.png)
 
 LineageOS をインストールした Naver Pay Connect（Npay_connect）で、カメラ、音声、センサー、Android NFC、RGB、IC カードの状態を確認するアプリです。
 

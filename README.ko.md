@@ -2,7 +2,7 @@
 
 [English](README.md) · [日本語](README.ja.md)
 
-![Connect Diagnostics — camera, RGB and IC card tests](docs/overview.svg)
+![Connect Diagnostics 0.1.2 running on Npay Connect](docs/screenshot.png)
 
 LineageOS를 설치한 네이버페이 커넥트(Npay_connect)에서 카메라, 오디오, 센서, Android NFC, RGB와 IC 카드 상태를 확인하는 앱입니다.
 

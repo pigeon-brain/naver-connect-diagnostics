@@ -34,4 +34,4 @@ scripts/build_source_zip.py
 scripts/check_public_tree.py
 scripts/test_public_audit.py
 verification.json
-docs/overview.svg
+docs/screenshot.png
